@@ -3,6 +3,7 @@ import type { MenuItem, OrderItem } from '../types'
 
 const useOrder = () => {
 	const [order, setOrder] = useState<OrderItem[]>([])
+	const [tip, setTip] = useState<number>(0)
 
 	const addItem = (e: MenuItem) => {
 
@@ -17,14 +18,23 @@ const useOrder = () => {
 		} else {
 			setOrder([...order, newItem])
 		}
-		
-		console.log(order)
-		
+	}
+
+	const removeItem = (e: OrderItem) => { 
+		setOrder(order.filter(item => item.id !== e.id))
+	}
+
+	const placeOrder = () => {
+		console.log('saving....')
 	}
 
 	return {
+		order,
+		tip,
+		setTip,
 		addItem,
-		order
+		removeItem,
+		placeOrder
 	};
 }
  
