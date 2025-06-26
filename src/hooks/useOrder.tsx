@@ -25,7 +25,8 @@ const useOrder = () => {
 	}
 
 	const placeOrder = () => {
-		console.log('saving....')
+		setOrder([])
+		setTip(0)
 	}
 
 	return {
